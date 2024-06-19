@@ -1,0 +1,19 @@
+<div class="contenedor-sensor">
+
+    <div class="contenedor-valores">
+   
+        <div class="valores">
+                 <h5>{{sensor?.sensorType}}</h5>
+            <div class="info-valores">
+                <img src="../../../../assets/icons/ok.png" alt="">
+                <p>{{sensor?.readings}}</p>
+                <img src="../../../../assets/icons/alerta.png" alt="">
+                <p>{{sensor?.mediumAlerts}}</p>
+                <img src="../../../../assets/icons/peligro.png" alt="">
+                <p>{{sensor?.redAlerts}}</p>
+            </div>
+        </div>
+        <img [src]="sensor?.icon" alt="sensor" />
+    </div>
+
+</div>

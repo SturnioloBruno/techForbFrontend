@@ -1,0 +1,29 @@
+<div class="modal">
+    <div class="modal-content">
+        <div class="modal-header">Crear nueva planta</div>
+        <div class="modal-body">
+            <form [formGroup]="form" (submit)="onSubmit()">
+                <div class="create-plant">
+                    <label for="name">Nombre Planta</label>
+                    <input type="text" id="name" placeholder="Ingrese nombre" formControlName="name">
+                </div>
+                <div class="pais">
+                    <label for="country">Pais</label>
+                    <select id="country" formControlName="country">
+                        <option value="Argentina">Argentina</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-cancel" (click)="closeModalCreate()">Cancelar</button>
+                    <button class="btn-create" type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,55 @@
+.contenedor-tabla{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+
+    .contendor-btnPlanta{
+        padding: 2rem 2rem 1rem 2rem;
+        
+        font-weight: 600;
+        
+        span{
+            margin-left: 1rem;
+            margin-right: 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        button{
+            padding: 0.2rem 1.1rem;
+            background-color: transparent;
+            border: solid #B0CAD1 1px;
+            border-radius: 0.3rem;
+            font-weight: 500;
+        }
+
+        hr{
+            height: 1x;
+        }
+
+    }
+
+    .tabla{
+        width: 100%;
+        padding-left: 2.1rem;
+        padding-right: 1rem;
+
+        .cabecera{
+            display: grid;
+            grid-template-columns:repeat(6,1fr) ;
+            column-gap: 5rem;
+            color: #B0CAD1;
+        }
+
+        .cuerpo{
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            column-gap: 5rem;
+
+            
+        }
+           
+    }
+}

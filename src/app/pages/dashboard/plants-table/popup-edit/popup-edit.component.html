@@ -1,0 +1,25 @@
+<div class="modal">
+    <div class="modal_body">
+        <h1>Editar Planta</h1>
+        <form [formGroup]="form" (submit)="editPlant(plantResponse!.id)">
+            <div class="create-plant">
+                <label for="name">Nombre Planta</label>
+                <input type="text" id="name" placeholder="Ingrese nombre" formControlName="name">
+                <label for="country">Pais</label>
+                <input type="text" id="country" placeholder="Pais" formControlName="country">
+                <label for="totalReadings">cantidad de lecturas</label>
+                <input type="text" id="totalReadings" placeholder="Ingrese" formControlName="totalReadings">
+                <label for="sensorsDisabled">Sensores Deshabilitados</label>
+                <input type="text" id="sensorsDisabled" placeholder="Ingrese" formControlName="sensorsDisabled">
+                <label for="mediumAlerts">Alertas medias</label>
+                <input type="text" id="mediumAlerts" placeholder="Ingrese" formControlName="mediumAlerts">
+                <label for="redAlerts">Alertas rojas</label>
+                <input type="text" id="redAlerts" placeholder="Ingrese" formControlName="redAlerts">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" (click)="closeModalEdit()">Cancelar</button>
+                <button class="btn-create" type="submit" [disabled]="form.invalid">Editar</button>
+            </div>
+        </form>
+    </div>
+</div>

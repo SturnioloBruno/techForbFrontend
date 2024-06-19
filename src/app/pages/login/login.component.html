@@ -1,0 +1,60 @@
+<div class="cont-principal-log">
+    <div class="background">
+        <div class="cont-info">
+            <div>
+                <h1>Iniciar Sesion</h1>
+                <div class="contenedor-parrafo">
+                    <p>Nos alegra tenerte de vuelta y estamos listos para atender tus necesidades. Inicia sesion y
+                        continua
+                        aprovechando
+                        al maximo nuestra plataforma</p>
+                </div>
+                <div class="monitoreo">
+                    <img src="../../../assets/icons/data.png" alt="">
+                    <div>
+                        <h4>Monitoreo integral</h4>
+                        <p>Administra, monitorea multiples plantas de forma centralizada</p>
+                    </div>
+                </div>
+                <div class="notificaciones">
+                    <img src="../../../assets/icons/star.png" alt="">
+                    <div>
+                        <h4>Notificaciones en tiempo real</h4>
+                        <p>Recibi notificaciones en tiempo real sobre las mediciones</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="login">
+        <div>
+            <h1>Portal de monitoreo</h1>
+            <h3>Iniciar sesión</h3>
+
+            <form [formGroup]="form" (submit)="onSubmit()">
+                <div class="email">
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" placeholder="Luciano@email.com" id="email">
+                </div>
+                <div class="contenedor-password">
+                    <input type="password" id="password" formControlName="password" placeholder="Contaseña (minimo 8 caracteres)" [ngClass]="{'field-invalid': form.get('password')!.touched && !form.get('password')!.valid}">
+                </div>
+                <div class="cont-btnLogin">
+                    ¿Olvidaste tu contraseña?&nbsp;
+                    <button type="submit" [disabled]="form.invalid" [ngClass]="{'btn-disabled': form.invalid, 'btn-enabled': !form.invalid}"><em></em>&nbsp;Iniciar Sesion</button>
+                </div>
+                <div class="condiciones">
+                    <p>Protegido por reCAPTCHA y sujeto a la <span>Politica de Privacidad y Condiciones</span></p>
+                </div>
+            </form>
+            <div class="contenedor-error">
+                @if (errorMessage) {
+                    <app-error-message [errorMessage]="errorMessage"></app-error-message>
+                }
+            </div>        
+        </div>
+        
+    </div>
+</div>

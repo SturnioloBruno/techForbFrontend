@@ -1,0 +1,52 @@
+
+.contenedor-sensor {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    border-radius: 1rem;
+    padding: 1.5rem 0.3rem 1.5rem 0;
+    
+
+    .contenedor-valores {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+
+        h5 {
+            color: #8E8EA1; 
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+
+        .valores {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+
+            img {
+                position: relative;
+                top: -1px;
+                width: 1rem;
+                height: 1rem;
+                margin-right: 0.6rem;
+            }
+
+            p {
+                margin-right: 1rem;
+                margin-bottom: 0;
+            }
+            .info-valores{
+                display: flex;
+                
+            }
+
+        }
+        img[alt="sensor"]{
+            width: 4rem;
+            height: 4rem;
+            margin-left: 1rem;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+<div class="contenedor-principal">
+  <nav>
+    <img src="../../../assets/icons/logo.png" class="logo" alt="">
+
+    <div class="botonera">
+      <ul>
+        <li><a href=""><img src="../../../assets/icons/dashboard.png" alt="dashboard"></a></li>
+        <li><a href=""><img src="../../../assets/icons/monitoreo-plantas.png" alt="monitoreo-plantas"></a></li>
+        <li><a href=""><img src="../../../assets/icons/historico-sensores.png" alt="historico-sensores"></a></li>
+        <li><a href=""><img src="../../../assets/icons/historico-plantas.png" alt="historico-plantas"></a></li>
+        <li><a (click)="logout()" href="#"><img src="../../../assets/icons/logOut.png" alt="logOut"></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="sobrecontenedor-main">
+    <div class="contenedor-main">
+      <!-- Header Section -->
+      <div class="navbar">
+        <h1>Monitoreo global</h1>
+        <div class="menu">
+          <img src="../../../assets/icons/idioma.png" alt="idioma">
+          <img src="../../../assets/icons/ajuste.png" alt="ajuste">
+          <img src="../../../assets/icons/campanita.png" alt="campanita">
+          <app-user-profile [user]="user"></app-user-profile>
+        </div>
+      </div>
+
+
+      <app-summary-cards [totalReadings]="totalReadings" [totalMediumAlerts]="totalMediumAlerts"
+        [totalRedAlerts]="totalRedAlerts" [totalSensorsDisabled]="totalSensorsDisabled"></app-summary-cards>
+
+      <app-plants-table [plants]="plants" (eventPlantsModified)="loadPlants()"></app-plants-table>
+
+      <div class="contenedor-footer">
+        @for (currentSensor of sensors; track currentSensor.id) {
+        <app-sensor-card [sensor]="currentSensor" class="app-sensor"></app-sensor-card>
+        }
+      </div>
+    </div>
+  </div>
+</div>

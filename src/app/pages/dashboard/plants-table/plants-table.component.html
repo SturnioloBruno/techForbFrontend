@@ -1,0 +1,70 @@
+<div class="contenedor-tabla">
+  <div class="contendor-btnPlanta">
+    <span>Plantas</span>
+
+    <!-- Button trigger modal -->
+    <button (click)="openCreate()">
+      + Crear nueva planta
+    </button>
+    <hr>
+    @if (switchCreate) {
+    <app-popup-create (eventPlantResponse)="addPlant($event)"></app-popup-create>
+    }
+
+  </div>
+  <div class="tabla">
+    <div class="cabecera">
+      <p>Pais</p>
+      <p>Nombre de la planta</p>
+      <p>Lecturas</p>
+      <p>Alertas medias</p>
+      <p>Alertas rojas</p>
+      <p>Acciones</p>
+    </div>
+
+    @if (switchEdit) {
+      <app-popup-edit [plantResponse]="selectedPlant" (eventPlantResponse)="editPlant(selectedPlant)"></app-popup-edit>
+      }
+  
+      @if (switchDelete) {
+      <app-popup-delete [plantResponse]="selectedPlant" (eventPlantResponse)="deletePlant($event)"></app-popup-delete>
+      }
+
+    @for (plant of plants; track $index) {
+
+    <div class="cuerpo-tabla">
+      <div class="cuerpo">
+        <div>
+          <img src="" [alt]=""> {{plant.country}}
+        </div>
+        <div>
+          <p>{{plant.name}}</p>
+        </div>
+        <div>
+          <p>{{plant.totalReadings}}</p>
+        </div>
+        <div>
+          <p>{{plant.totalMediumAlerts}}</p>
+        </div>
+        <div>
+          <p>{{plant.totalRedAlerts}}
+        </div>
+        <div class="btn-tabla">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openEdit(plant)">
+              <span>Editar</span>
+            </button>
+            <button mat-menu-item (click)="openDelete(plant)">
+              <span>Eliminar</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+
+    }
+  </div>
+</div>
