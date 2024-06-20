@@ -2,18 +2,18 @@ const apiUrl: string = 'http://tech-forb-production.up.railway.app/api/v1';
 
 export const ApiEndpoints = {
     Auth:{
-        Register: `${apiUrl}/auth/register`,
-        Login: `${apiUrl}/auth/authenticate`
+        Register: `http://tech-forb-production.up.railway.app/api/v1/auth/register`,
+        Login: `http://tech-forb-production.up.railway.app/api/v1/auth/authenticate`
     },
     User:{
         Me: `${apiUrl}/users/me`
     },
     Plant:{
-        GetAllPlants: `${apiUrl}/plants`,
-        GetPlantById: (id: string) => `${apiUrl}/plants/${id}`,
-        CreatePlant: `${apiUrl}/plants`,
-        DeletePlant: (id: number) => `${apiUrl}/plants/${id}`,
-        UpdatePlant: (id: number) => `${apiUrl}/plants/${id}`
+        GetAllPlants: `http://tech-forb-production.up.railway.app/api/v1/plants`,
+        GetPlantById: (id: string) => `http://tech-forb-production.up.railway.app/api/v1/plants/${id}`,
+        CreatePlant: `http://tech-forb-production.up.railway.app/api/v1/plants`,
+        DeletePlant: (id: number) => `http://tech-forb-production.up.railway.app/api/v1/plants/${id}`,
+        UpdatePlant: (id: number) => `http://tech-forb-production.up.railway.app/api/v1/plants/${id}`
     }
 }
 
