@@ -3,7 +3,7 @@ const apiUrl: string = 'tech-forb-production.up.railway.app/api/v1';
 export const ApiEndpoints = {
     Auth:{
         Register: `${apiUrl}/auth/register`,
-        Login: `https://tech-forb-production.up.railway.app/api/v1/auth/authenticate`
+        Login: `http://tech-forb-production.up.railway.app/api/v1/auth/authenticate`
     },
     User:{
         Me: `${apiUrl}/users/me`
