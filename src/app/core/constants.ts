@@ -1,4 +1,4 @@
-const apiUrl: string = 'https://tech-forb-production.up.railway.app/api/v1';
+const apiUrl: string = 'tech-forb-production.up.railway.app/api/v1';
 
 export const ApiEndpoints = {
     Auth:{
