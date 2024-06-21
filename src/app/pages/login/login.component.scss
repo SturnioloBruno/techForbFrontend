@@ -188,8 +188,7 @@
     }
     .cont-principal-log .login {
         width: 100%;
-        justify-content: start;
-        margin-top: 10rem;
+        justify-content: center;
 
         h1,h3{
             display: none;
@@ -244,9 +243,7 @@
             .btn-login-responsive {
                 display: block;
                 width: 21.25rem;
-                position: absolute;
-                bottom: 0;
-                margin-bottom: 8rem;
+                margin-top: 10rem;
 
                 button {
                     border: none;
