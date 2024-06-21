@@ -242,16 +242,17 @@
 
             .btn-login-responsive {
                 display: block;
-                width: 100%;
+                width: 21.25rem;
+                position: absolute;
+                bottom: 0;
 
                 button {
-                    width: 100%;
                     border: none;
                     background-color: #28B1B9;
                     color: white;
                     border-radius: 1.25rem;
                     padding: 1rem;
-                    
+                    width: 100%;
                 }
 
             }
