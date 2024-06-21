@@ -7,7 +7,7 @@ import { Observable, of, catchError, map, switchMap } from 'rxjs';
 })
 export class BanderaService {
 
-  private apiUrl = 'https://flagcdn.com';
+  private apiUrl = 'https://tech-forb-production.up.railway.app/https://flagcdn.com';
   private countries: { [key: string]: string } = {};
 
   constructor(private http: HttpClient) { }
