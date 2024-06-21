@@ -63,10 +63,14 @@ export class PlantsTableComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
     // Aquí puedes manejar los cambios en la propiedad plantsWithFlag
     console.log('Se detectaron cambios en plantsWithFlag:', this.plantsWithFlag);
+    console.log('Se detectaron cambios en plants:', this.plants);
     // Puedes realizar acciones adicionales aquí si es necesario
+    this.syncPlantsWithFlag();
   }
 
   syncPlantsWithFlag() {
+    // Limpiar plantsWithFlag para sincronizar desde cero
+    this.plantsWithFlag = [];
     if (this.plants.length > this.plantsWithFlag.length) {
       const observables = this.plants.map(plant => {
         const exists = this.plantsWithFlag.some(p => p.id === plant.id);
