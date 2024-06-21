@@ -28,7 +28,12 @@ export class BanderaService {
 
   obtenerBandera(codigoPais: string): Observable<string> {
     const url = `${ApiEndpoints.MyProxy.GetBandera(codigoPais)}`;
-    return of(url); // Regresa la URL directamente en lugar de hacer una solicitud HTTP
+    return this.http.get(url, {responseType: 'text'}).pipe(
+      catchError(error => {
+        console.log('Error al obtener la bandera', error);
+        throw error;
+      })
+    ) // Regresa la URL directamente en lugar de hacer una solicitud HTTP
   }
 
   obtenerImagen(nombrePais: string): Observable<string> {
@@ -36,7 +41,7 @@ export class BanderaService {
     if (codigoPais) {
       return this.obtenerBandera(codigoPais);
     } else {
-      return of(''); // O alguna URL por defecto o un mensaje de error
+      return of('https://flagcdn.com/w20/ua.png'); // URL por defecto
     }
   }
 

@@ -187,9 +187,13 @@
         display: none;
     }
 
+    .cont-principal-log{
+        overflow: hidden;
+    }
+
     .cont-principal-log .login {
         width: 100%;
-        overflow: hidden;
+
 
         h1,h3{
             display: none;
@@ -261,32 +265,5 @@
         }
 
 
-    }
-    .cont-principal-log {
-        flex-direction: column; /* Cambia a dirección de columna para apilar verticalmente en pantallas pequeñas */
-    }
-
-    .background {
-        display: none; /* Oculta el fondo en pantallas pequeñas si es necesario */
-    }
-
-    .cont-info {
-        width: 100%; /* Ocupa todo el ancho disponible */
-        height: auto; /* Altura automática según contenido */
-        background: linear-gradient(180deg, rgba(51, 163, 170, 0.85) 0%, rgba(16, 112, 118, 0.85) 100%);
-        color: #fff;
-        padding: 2rem; /* Ajusta el espaciado según necesites */
-    }
-
-    .login {
-        width: 100%; /* Ocupa todo el ancho disponible */
-        margin-top: 2rem; /* Ajusta el margen superior según necesites */
-        border-radius: 0; /* Remueve el borde redondeado en pantallas pequeñas si es necesario */
-    }
-
-    .login-content {
-        width: 100%;
-        max-width: 90%; /* Ajusta el ancho máximo del contenido según necesites */
-        padding: 0 1rem; /* Añade espaciado horizontal según necesites */
     }
 }
