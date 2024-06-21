@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { PlantResponse, PlantWithFlag } from '../../../core/model/common.model';
 import { PopupCreateComponent } from './popup-create/popup-create.component';
 import { SwitchService } from './switch.service';
@@ -24,7 +24,7 @@ import { forkJoin, map, of } from 'rxjs';
   templateUrl: './plants-table.component.html',
   styleUrl: './plants-table.component.scss'
 })
-export class PlantsTableComponent implements OnInit {
+export class PlantsTableComponent implements OnInit, OnChanges {
   @Output() eventPlantsModified = new EventEmitter<void>();
 
   switchCreate?: boolean;
@@ -34,6 +34,7 @@ export class PlantsTableComponent implements OnInit {
   plants: PlantResponse[] = [];
   selectedPlant!: PlantResponse;
   plantsWithFlag: PlantWithFlag[] = [];
+  countries: { [key: string]: string } = {};
 
   constructor(private switchService: SwitchService, private banderaService: BanderaService) { }
 
@@ -49,13 +50,20 @@ export class PlantsTableComponent implements OnInit {
     });
 
     this.banderaService.cargarPaisesYCodigo().subscribe({
-      next: () => {
+      next: (response) => {
+        this.countries = response;
         this.syncPlantsWithFlag();
       },
       error: (error) => {
         console.error('Error al cargar códigos de países:', error);
       }
     });
+  }
+
+  ngOnChanges(): void {
+    // Aquí puedes manejar los cambios en la propiedad plantsWithFlag
+    console.log('Se detectaron cambios en plantsWithFlag:', this.plantsWithFlag);
+    // Puedes realizar acciones adicionales aquí si es necesario
   }
 
   syncPlantsWithFlag() {
