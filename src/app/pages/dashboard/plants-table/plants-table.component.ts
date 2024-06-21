@@ -8,7 +8,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { PopupDeleteComponent } from './popup-delete/popup-delete.component';
 import { BanderaService } from '../../../core/services/bandera.service';
-import { forkJoin, map, of } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-plants-table',
@@ -34,7 +35,6 @@ export class PlantsTableComponent implements OnInit, OnChanges {
   plants: PlantResponse[] = [];
   selectedPlant!: PlantResponse;
   plantsWithFlag: PlantWithFlag[] = [];
-  countries: { [key: string]: string } = {};
 
   constructor(private switchService: SwitchService, private banderaService: BanderaService) { }
 
@@ -48,57 +48,34 @@ export class PlantsTableComponent implements OnInit, OnChanges {
     this.switchService.$modalDelete.subscribe((valor) => {
       this.switchDelete = valor;
     });
-
-    this.banderaService.cargarPaisesYCodigo().subscribe({
-      next: (response) => {
-        this.countries = response;
-        this.syncPlantsWithFlag();
-      },
-      error: (error) => {
-        console.error('Error al cargar códigos de países:', error);
-      }
-    });
   }
 
   ngOnChanges(): void {
-    // Aquí puedes manejar los cambios en la propiedad plantsWithFlag
-    console.log('Se detectaron cambios en plantsWithFlag:', this.plantsWithFlag);
-    console.log('Se detectaron cambios en plants:', this.plants);
-    // Puedes realizar acciones adicionales aquí si es necesario
     this.syncPlantsWithFlag();
   }
 
   syncPlantsWithFlag() {
-    // Limpiar plantsWithFlag para sincronizar desde cero
     this.plantsWithFlag = [];
-    if (this.plants.length > this.plantsWithFlag.length) {
+    if (this.plants.length > 0) {
       const observables = this.plants.map(plant => {
         const exists = this.plantsWithFlag.some(p => p.id === plant.id);
         if (!exists) {
           return this.banderaService.obtenerImagen(plant.country).pipe(
-            map(flagUrl => {
-              const plantWithFlag: PlantWithFlag = {
-                ...plant,
-                flag: flagUrl
-              };
-              return plantWithFlag;
-            })
+            map(flagUrl => ({
+              ...plant,
+              flag: flagUrl
+            })),
+            catchError(() => of({
+              ...plant,
+              flag: 'https://flagcdn.com/w20/ua.png' // URL por defecto en caso de error
+            }))
           );
         }
         return of(null);
       });
 
-      forkJoin(observables).subscribe({
-        next: (results) => {
-          results.forEach(result => {
-            if (result) {
-              this.plantsWithFlag.push(result);
-            }
-          });
-        },
-        error: (error) => {
-          console.error('Error al obtener las banderas:', error);
-        }
+      forkJoin(observables).subscribe(results => {
+        this.plantsWithFlag = results.filter(result => result !== null) as PlantWithFlag[];
       });
     }
   }
@@ -133,23 +110,18 @@ export class PlantsTableComponent implements OnInit, OnChanges {
   }
 
   deletePlant(plant: PlantResponse) {
-    if (this.plants) {
-      const index = this.plants.findIndex(p => p.id === plant.id);
-      if (index !== -1) {
-        this.plants.splice(index, 1);
-      }
+    const index = this.plants.findIndex(p => p.id === plant.id);
+    if (index !== -1) {
+      this.plants.splice(index, 1);
       this.eventPlantsModified.emit();
     }
   }
 
   editPlant(plant: PlantResponse) {
-    if (this.plants) {
-      const index = this.plants.findIndex(p => p.id === plant.id);
-      if (index !== -1) {
-        this.plants[index] = plant;
-      }
+    const index = this.plants.findIndex(p => p.id === plant.id);
+    if (index !== -1) {
+      this.plants[index] = plant;
       this.eventPlantsModified.emit();
     }
   }
-
 }

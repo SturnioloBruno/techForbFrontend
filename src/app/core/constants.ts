@@ -1,4 +1,5 @@
-const apiUrl: string = 'https://localhost:8443/api/v1';
+const apiUrl: string = 'https://tech-forb-production.up.railway.app/api/v1';
+// todo usar environment
 const nube: string = 'https://tech-forb-production.up.railway.app/api/v1'
 const local:string = 'https://localhost:8443/api/v1'
 
@@ -19,7 +20,8 @@ export const ApiEndpoints = {
     },
     MyProxy:{
         GetCodes: `${apiUrl}/proxy/codes`,
-        GetBandera: (codigo: string) =>`${apiUrl}/proxy/banderas/${codigo}`
+        GetBanderaPorCodigo: (codigo: string) =>`${apiUrl}/proxy/bandera/${codigo}`,
+        GetBanderaPorNombre: (nombre: string) =>`${apiUrl}/proxy/banderaAPartirDelNombre/${nombre}`
     }
 }
 

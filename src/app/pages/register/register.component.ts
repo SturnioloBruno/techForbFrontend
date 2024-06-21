@@ -31,7 +31,6 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      // Transformar los datos del formulario a un RegisterPayload
       const registerPayload: RegisterPayload = {
         email: this.form.get('email')!.value,
         password: this.form.get('password')!.value,

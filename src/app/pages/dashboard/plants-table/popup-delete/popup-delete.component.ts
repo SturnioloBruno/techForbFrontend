@@ -34,7 +34,6 @@ export class PopupDeleteComponent{
     if(plant && plant.id) {
       this.plantService.deletePlantById(plant.id).subscribe({
         next: () => {
-          console.log(`planta con id:${plant.id} eliminada con exito`);
           this.eventPlantResponse.emit(plant);
           this.switchService.$modalDelete.emit(false);
         },
@@ -43,8 +42,7 @@ export class PopupDeleteComponent{
         }
       })
     }else{
-      console.log("No encuentro la planta a eliminar, prueba refrescar la pagina");
-      
+      console.log("No encuentro la planta a eliminar, prueba refrescar la pagina");     
     }
   }
 }

@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 
 export const httpInterceptor: HttpInterceptorFn = (req, next) => {
 
-  // todo cuando este el token service, este deberia ser el que va aca:
   const authService = inject(AuthService);
   const router = inject(Router);
 
@@ -27,6 +26,7 @@ export const httpInterceptor: HttpInterceptorFn = (req, next) => {
         // error del cliente
         errorMessage = `Error del navegador ${e.error.message}`;
       }else {
+        // error del servidor
         if (e.status === 401) {
           localStorage.removeItem(LocalStorage.token);
           router.navigate(['']);

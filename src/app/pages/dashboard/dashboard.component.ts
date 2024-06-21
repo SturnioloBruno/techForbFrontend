@@ -43,8 +43,6 @@ export class DashboardComponent implements OnInit {
       next: (response: User) => {
         if (response) {
           this.user = response as User;
-        } else {
-          console.log('No data found in the response');
         }
       },
       error: (error) => {

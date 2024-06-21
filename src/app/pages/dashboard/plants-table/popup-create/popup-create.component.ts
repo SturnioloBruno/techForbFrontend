@@ -45,7 +45,6 @@ export class PopupCreateComponent {
     };
     this.plantService.createPlant(plantRequest).subscribe({
       next: (response) => {
-        // aca deberia de hacer un eventEmmiter para mandarle la planta al padre
         this.actualizarFlag(response);
         const plantWithFlag:PlantWithFlag = {
           ...response,

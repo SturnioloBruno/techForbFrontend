@@ -12,42 +12,14 @@ export class BanderaService {
 
   constructor(private http: HttpClient) { }
 
-  cargarPaisesYCodigo(): Observable<{ [key: string]: string }> {
-    const url = `${ApiEndpoints.MyProxy.GetCodes}`;
-    return this.http.get<{ [key: string]: string }>(url).pipe(
-      map(data => {
-        this.countries = data;
-        return this.countries;
-      }),
+  obtenerImagen(nombrePais: string): Observable<string> {
+    return this.http.get(ApiEndpoints.MyProxy.GetBanderaPorNombre(nombrePais), { responseType: 'text' }).pipe(
+      map(response => response as string), 
       catchError(error => {
-        console.error('Error al cargar los países:', error);
-        throw error;
+        console.error('Error al obtener la bandera', error);
+        return of('https://flagcdn.com/w20/ua.png'); // URL por defecto en caso de error
       })
     );
   }
 
-  obtenerBandera(codigoPais: string): Observable<string> {
-    const url = `${ApiEndpoints.MyProxy.GetBandera(codigoPais)}`;
-    return this.http.get(url, {responseType: 'text'}).pipe(
-      catchError(error => {
-        console.log('Error al obtener la bandera', error);
-        throw error;
-      })
-    ) 
-  }
-
-  obtenerImagen(nombrePais: string): Observable<string> {
-    const codigoPais = this.obtenerCodigoPais(nombrePais);
-    console.log(`el codigo para el pais: ${nombrePais}, es: ${codigoPais}`);
-    
-    if (codigoPais) {
-      return this.obtenerBandera(codigoPais);
-    } else {
-      return of('https://flagcdn.com/w20/ua.png'); // URL por defecto
-    }
-  }
-
-  private obtenerCodigoPais(nombrePais: string): string {
-    return this.countries[nombrePais];
-  }
 }
