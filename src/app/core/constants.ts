@@ -1,4 +1,4 @@
-const apiUrl: string = 'https://tech-forb-production.up.railway.app/api/v1';
+const apiUrl: string = 'https://localhost:8443/api/v1';
 const nube: string = 'https://tech-forb-production.up.railway.app/api/v1'
 const local:string = 'https://localhost:8443/api/v1'
 
