@@ -243,8 +243,9 @@
             .btn-login-responsive {
                 display: block;
                 width: 21.25rem;
-                position: relative;
+                position: absolute;
                 bottom: 0;
+                margin-bottom: 1.5rem;
 
                 button {
                     border: none;
