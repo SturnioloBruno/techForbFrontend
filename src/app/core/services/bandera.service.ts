@@ -33,11 +33,13 @@ export class BanderaService {
         console.log('Error al obtener la bandera', error);
         throw error;
       })
-    ) // Regresa la URL directamente en lugar de hacer una solicitud HTTP
+    ) 
   }
 
   obtenerImagen(nombrePais: string): Observable<string> {
     const codigoPais = this.obtenerCodigoPais(nombrePais);
+    console.log(`el codigo para el pais: ${nombrePais}, es: ${codigoPais}`);
+    
     if (codigoPais) {
       return this.obtenerBandera(codigoPais);
     } else {

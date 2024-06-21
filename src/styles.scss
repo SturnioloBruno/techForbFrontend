@@ -45,5 +45,11 @@ body { margin: 0; }
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+@media (max-width:430px){
+  body{
+    overflow: hidden;
+  }
+}
 
