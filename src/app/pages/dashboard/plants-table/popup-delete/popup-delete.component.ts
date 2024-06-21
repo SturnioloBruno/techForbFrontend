@@ -12,7 +12,7 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './popup-delete.component.html',
   styleUrl: './popup-delete.component.scss'
 })
-export class PopupDeleteComponent implements OnChanges{
+export class PopupDeleteComponent{
 
   
 
@@ -25,13 +25,6 @@ export class PopupDeleteComponent implements OnChanges{
     private switchService : SwitchService,
     private plantService: PlantService
   ){}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['plantResponse'] && changes['plantResponse'].currentValue) {
-      console.log('Nuevo plantResponse:', this.plantResponse);
-      // Aquí puedes manejar los cambios en plantResponse
-    }
-  }
 
   closeModalDelete() {
     this.switchService.$modalDelete.emit(false);

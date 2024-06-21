@@ -6,6 +6,7 @@ import { SummaryCardsComponent } from './summary-cards/summary-cards.component';
 import { PlantsTableComponent } from './plants-table/plants-table.component';
 import { SensorCardComponent } from './sensor-card/sensor-card.component';
 import { PlantService } from '../../core/services/plant.service';
+import { BanderaService } from '../../core/services/bandera.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit {
   totalRedAlerts ?: number;
   totalSensorsDisabled ?: number;
   plants: PlantResponse[] = [];
+
   sensors: Sensor[] = [
     { id: 1, sensorType: SensorType.TEMPERATURA, readings: 150, mediumAlerts: 10, redAlerts: 2, isEnabled: true, icon:'../../../../assets/icons/temperatura.png' },
     { id: 2, sensorType: SensorType.PRESION, readings: 200, mediumAlerts: 20, redAlerts: 5, isEnabled: true, icon:'../../../../assets/icons/presion.png' },

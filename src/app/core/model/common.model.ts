@@ -37,6 +37,17 @@ export interface PlantResponse {
     sensorsDisabled: number;
 }
 
+export interface PlantWithFlag extends PlantResponse{
+    id : number;
+    name: string;
+    country: string;
+    totalReadings: number;
+    totalMediumAlerts: number;
+    totalRedAlerts: number;
+    sensorsDisabled: number;
+    flag: string;
+}
+
 export interface PlantUpdate {
     name: string;
     country: string;

@@ -1,19 +1,21 @@
-const apiUrl: string = 'https://tech-forb-production.up.railway.app/api/v1';
+const apiUrl: string = 'https://tech-forb-production.up.railway.app/api/v11';
+const nube: string = 'https://tech-forb-production.up.railway.app/api/v1'
+const local:string = 'https://localhost:8443/api/v1'
 
 export const ApiEndpoints = {
     Auth:{
-        Register: `https://tech-forb-production.up.railway.app/api/v1/auth/register`,
-        Login: `https://tech-forb-production.up.railway.app/api/v1/auth/authenticate`
+        Register: `${apiUrl}/auth/register`,
+        Login: `${apiUrl}/auth/authenticate`
     },
     User:{
-        Me: `https://tech-forb-production.up.railway.app/api/v1/users/me`
+        Me: `${apiUrl}/users/me`
     },
     Plant:{
-        GetAllPlants: `https://tech-forb-production.up.railway.app/api/v1/plants`,
-        GetPlantById: (id: string) => `https://tech-forb-production.up.railway.app/api/v1/plants/${id}`,
-        CreatePlant: `https://tech-forb-production.up.railway.app/api/v1/plants`,
-        DeletePlant: (id: number) => `https://tech-forb-production.up.railway.app/api/v1/plants/${id}`,
-        UpdatePlant: (id: number) => `https://tech-forb-production.up.railway.app/api/v1/plants/${id}`
+        GetAllPlants: `${apiUrl}/plants`,
+        GetPlantById: (id: string) => `${apiUrl}/plants/${id}`,
+        CreatePlant: `${apiUrl}/plants`,
+        DeletePlant: (id: number) => `${apiUrl}/plants/${id}`,
+        UpdatePlant: (id: number) => `${apiUrl}/plants/${id}`
     }
 }
 

@@ -8,7 +8,7 @@
     </button>
     <hr>
     @if (switchCreate) {
-    <app-popup-create (eventPlantResponse)="addPlant($event)"></app-popup-create>
+    <app-popup-create (eventPlantWithFlag)="addPlant($event)"></app-popup-create>
     }
 
   </div>
@@ -30,34 +30,34 @@
       <app-popup-delete [plantResponse]="selectedPlant" (eventPlantResponse)="deletePlant($event)"></app-popup-delete>
       }
 
-    @for (plant of plants; track $index) {
+    @for (plantWithFlag of plantsWithFlag; track $index) {
 
     <div class="cuerpo-tabla">
       <div class="cuerpo">
         <div>
-          <img src="" [alt]=""> {{plant.country}}
+          <img [src]="plantWithFlag.flag" alt="bandera"> {{plantWithFlag.country}}
         </div>
         <div>
-          <p>{{plant.name}}</p>
+          <p>{{plantWithFlag.name}}</p>
         </div>
         <div>
-          <p>{{plant.totalReadings}}</p>
+          <p>{{plantWithFlag.totalReadings}}</p>
         </div>
         <div>
-          <p>{{plant.totalMediumAlerts}}</p>
+          <p>{{plantWithFlag.totalMediumAlerts}}</p>
         </div>
         <div>
-          <p>{{plant.totalRedAlerts}}
+          <p>{{plantWithFlag.totalRedAlerts}}
         </div>
         <div class="btn-tabla">
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="openEdit(plant)">
+            <button mat-menu-item (click)="openEdit(plantWithFlag)">
               <span>Editar</span>
             </button>
-            <button mat-menu-item (click)="openDelete(plant)">
+            <button mat-menu-item (click)="openDelete(plantWithFlag)">
               <span>Eliminar</span>
             </button>
           </mat-menu>

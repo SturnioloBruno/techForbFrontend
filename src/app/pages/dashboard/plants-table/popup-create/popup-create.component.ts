@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { SwitchService } from '../switch.service';
-import { PlantRequest, PlantResponse } from '../../../../core/model/common.model';
+import { PlantRequest, PlantWithFlag } from '../../../../core/model/common.model';
 import { PlantService } from '../../../../core/services/plant.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,9 +15,10 @@ import { Router } from '@angular/router';
 export class PopupCreateComponent {
 
   form: FormGroup;
-  plantResponse ?: PlantResponse;
+  plantResponseWithFlag ?: PlantWithFlag;
+  urlFlag:string = 'ar';
   
-  @Output() eventPlantResponse = new EventEmitter<PlantResponse>();
+  @Output() eventPlantWithFlag = new EventEmitter<PlantWithFlag>();
 
   constructor(
     private switchService: SwitchService,
@@ -42,7 +43,11 @@ export class PopupCreateComponent {
     this.plantService.createPlant(plantRequest).subscribe({
       next: (response) => {
         // aca deberia de hacer un eventEmmiter para mandarle la planta al padre
-        this.eventPlantResponse.emit(response);
+        const plantWithFlag:PlantWithFlag = {
+          ...response,
+          flag: this.urlFlag
+        }
+        this.eventPlantWithFlag.emit(plantWithFlag);
         this.switchService.$modalCreate.emit(false);
       },
       error: (err) => {

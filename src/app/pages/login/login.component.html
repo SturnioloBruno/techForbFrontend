@@ -31,14 +31,19 @@
     <div class="login">
         <div>
             <h1>Portal de monitoreo</h1>
+            <div class="rectangulo-responsive">
+                <img src="../../../assets/icons/rectangulo.png" alt="">
+                <h3>Iniciar Sesion</h3>
+            </div>
             <h3>Iniciar sesión</h3>
 
             <form [formGroup]="form" (submit)="onSubmit()">
                 <div class="email">
-                    <label for="email">Email</label>
+                    <label for="email" class="label-email">Email</label>
                     <input type="email" formControlName="email" placeholder="Luciano@email.com" id="email">
                 </div>
                 <div class="contenedor-password">
+                    <label for="" class="label-contraseña">Contraseña</label>
                     <input type="password" id="password" formControlName="password" placeholder="Contaseña (minimo 8 caracteres)" [ngClass]="{'field-invalid': form.get('password')!.touched && !form.get('password')!.valid}">
                 </div>
                 <div class="cont-btnLogin">
@@ -47,6 +52,9 @@
                 </div>
                 <div class="condiciones">
                     <p>Protegido por reCAPTCHA y sujeto a la <span>Politica de Privacidad y Condiciones</span></p>
+                </div>
+                <div class="btn-login-responsive">
+                    <button>Ingresar</button>
                 </div>
             </form>
             <div class="contenedor-error">
