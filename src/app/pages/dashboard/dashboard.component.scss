@@ -75,6 +75,10 @@
       img[alt="campanita"] {
         margin-right: 1rem;
       }
+
+      img[alt="rectangulo"], img[alt="menu"]{
+        display: none;
+      }
     }
   }
 
