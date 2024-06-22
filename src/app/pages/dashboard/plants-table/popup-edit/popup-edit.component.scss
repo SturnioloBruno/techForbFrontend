@@ -94,12 +94,19 @@
     width: 90%;
     
     .modal-contenido{
-      width: 90% !important;
+      width: 100% !important;
       margin: 0 auto;
 
       form{
         .crear-planta {
           grid-template-columns: 1fr !important;
+
+          .contenedor-inputs{
+
+            input{
+              width: 90%;
+            }
+          }
         }
       }
     }
