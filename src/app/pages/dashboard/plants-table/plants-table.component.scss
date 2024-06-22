@@ -1,3 +1,6 @@
+
+
+
 .contenedor-tabla{
     background-color: white;
     display: flex;
@@ -48,8 +51,99 @@
             grid-template-columns: repeat(6,1fr);
             column-gap: 5rem;
 
-            
+            .cont-bandera-nom{
+                display: contents;
+                
+                .bandera-nombre{
+                    display: flex;
+                    align-items: center;
+                    gap: 0.8rem;
+
+                    p{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
         }
            
     }
+}
+
+
+@media (max-width:430px){
+
+
+.contenedor-tabla{
+    width: 21.12rem;
+
+    .contendor-btnPlanta{
+        span{
+            margin-left: 0;
+        }
+        button{
+            display: none;
+        }
+        hr{
+            display: none;
+        }
+    }
+
+    .tabla{
+        width: 100%;
+        .cuerpo{
+            max-width: 100%;
+            gap: 10px;
+            grid-template-columns: repeat(5,1fr);
+            border-bottom: solid 2px #EAEAEA;
+            margin-bottom: 1rem;
+
+            .resultados{
+                width: 2.5rem;
+                font-size: 14px;
+            }
+
+            .cont-bandera-nom{
+                display: block;
+
+                .bandera-nombre{
+                    p{
+                        display: inline-block;
+                        width: 5rem;
+                    }
+                }
+
+                .nombre-planta{
+                    p{
+                       font-size: 0.75rem; 
+                       color: #848484;
+                    }
+                }
+            }
+
+            .btn-tabla{
+                .boton-acciones{
+                    padding: 0 2rem 2rem 0;
+                    width: 2.5rem;
+                    
+                }
+            }
+
+        } 
+
+        .cabecera{
+            display: none;
+        }
+    }
+    
+
+
+
+
+}
+
+    
+
+
+    
 }

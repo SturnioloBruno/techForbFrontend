@@ -1,11 +1,10 @@
-
-.contenedor-principal{
+.contenedor-principal {
   display: flex;
   font-family: "Poppins", sans-serif;
   background-color: #f5f9ff;
   width: 100%;
 
-   nav{
+  nav {
     padding: 1.6rem;
     display: flex;
     flex-direction: column;
@@ -14,35 +13,38 @@
     z-index: 3;
     background-color: #fff;
 
-    .logo{
+    .logo {
       width: 2.25rem;
       height: 2rem;
       margin-bottom: 2.5rem;
     }
 
-    .botonera{
+    .botonera {
 
-      ul{
+      ul {
         list-style: none;
         padding: 0;
-        li{
+
+        li {
           margin: 2.8rem 0;
         }
-        img[alt="dashboard"], img[alt="historico-plantas"] {
+
+        img[alt="dashboard"],
+        img[alt="historico-plantas"] {
           width: 1.25rem;
         }
 
-        img[alt="monitoreo-plantas"]{
+        img[alt="monitoreo-plantas"] {
           width: 1.5rem;
           height: 1rem;
         }
 
-        img[alt="historico-sensores"]{
+        img[alt="historico-sensores"] {
           width: 1.37rem;
           height: 1.2rem;
         }
 
-        img[alt="logOut"]{
+        img[alt="logOut"] {
           width: 1.11rem;
           height: 1.12rem;
         }
@@ -51,47 +53,116 @@
     }
 
   }
-  
-  .navbar{
+
+  .navbar {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    .menu{
+
+    .menu {
       display: flex;
       align-items: center;
 
-      img{
+      img {
         width: 1.25rem;
-        height: 1.25rem;  
+        height: 1.25rem;
       }
 
-      img[alt="ajuste"]{
+      img[alt="ajuste"] {
         margin: 0 1rem;
       }
-      img[alt="campanita"]{
+
+      img[alt="campanita"] {
         margin-right: 1rem;
       }
     }
   }
 
-  .sobrecontenedor-main{
+  .sobrecontenedor-main {
     display: flex;
     width: 100%;
     padding: 3.5rem 3.5rem;
   }
-  .contenedor-main{
+
+  .contenedor-main {
     flex: 1;
 
   }
 
 
-  .contenedor-footer{
+  .contenedor-footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 2.5rem;
     row-gap: 2rem;
-    
+
   }
 
 
+}
+
+
+@media (max-width:430px) {
+  .contenedor-principal {
+    background-color: #F9F9FA;
+
+    .contenedor-footer{
+      display: none;
+    }
+
+    nav {
+      display: none;
+    }
+
+    .sobrecontenedor-main {
+      width: 100%;
+
+      .contenedor-main {
+
+        .navbar {
+
+          border-bottom: solid 2px #F3F3F3;
+
+          .menu {
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+
+            img[alt="idioma"],
+            img[alt="ajuste"] {
+              display: none;
+            }
+
+            .usuario {
+              display: none;
+            }
+
+            img[alt="rectangulo"] {
+              width: 5rem;
+              height: 4rem;
+            }
+
+            img[alt="menu"] {
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+
+            img[alt="campanita"] {
+              width: 1.8rem;
+              height: 1.8rem;
+            }
+
+          }
+
+          h1 {
+            display: none;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
 }

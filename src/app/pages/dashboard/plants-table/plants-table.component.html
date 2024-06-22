@@ -23,34 +23,37 @@
     </div>
 
     @if (switchEdit) {
-      <app-popup-edit [plantResponse]="selectedPlant" (eventPlantResponse)="editPlant(selectedPlant)"></app-popup-edit>
-      }
-  
-      @if (switchDelete) {
-      <app-popup-delete [plantResponse]="selectedPlant" (eventPlantResponse)="deletePlant($event)"></app-popup-delete>
-      }
+    <app-popup-edit [plantResponse]="selectedPlant" (eventPlantResponse)="editPlant(selectedPlant)"></app-popup-edit>
+    }
+
+    @if (switchDelete) {
+    <app-popup-delete [plantResponse]="selectedPlant" (eventPlantResponse)="deletePlant($event)"></app-popup-delete>
+    }
 
     @for (plantWithFlag of plantsWithFlag; track $index) {
 
     <div class="cuerpo-tabla">
       <div class="cuerpo">
-        <div>
-          <img [src]="plantWithFlag.flag" alt="bandera"> {{plantWithFlag.country}}
+        <div class="cont-bandera-nom">
+          <div class="bandera-nombre">
+            <img [src]="plantWithFlag.flag" alt="bandera"> 
+            <p>{{plantWithFlag.country}}</p>
+          </div>
+          <div class="nombre-planta">
+            <p>{{plantWithFlag.name}}</p>
+          </div>
         </div>
-        <div>
-          <p>{{plantWithFlag.name}}</p>
-        </div>
-        <div>
+        <div class="resultados">
           <p>{{plantWithFlag.totalReadings}}</p>
         </div>
-        <div>
+        <div class="resultados">
           <p>{{plantWithFlag.totalMediumAlerts}}</p>
         </div>
-        <div>
+        <div class="resultados">
           <p>{{plantWithFlag.totalRedAlerts}}
         </div>
         <div class="btn-tabla">
-          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <button class="boton-acciones" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
@@ -64,6 +67,7 @@
         </div>
       </div>
     </div>
+
 
     }
   </div>
