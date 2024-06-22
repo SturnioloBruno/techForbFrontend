@@ -3,11 +3,12 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { Router } from '@angular/router';
 import { RegisterPayload } from '../../core/model/common.model';
 import { AuthService } from '../../core/services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -47,6 +48,10 @@ export class RegisterComponent {
         }
       })
     }
+  }
+
+  toLogin() {
+    this.router.navigate(['login']);
   }
 
 }

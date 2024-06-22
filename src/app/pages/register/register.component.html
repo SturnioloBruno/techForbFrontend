@@ -1,38 +1,64 @@
-<div class="container-fluid card login-container">
-    <h3 class="text-center">Create an account</h3>
-    <hr>
-    @if (errorMsg.length) {
-        @for (msg of errorMsg; track $index) {
-            <div class="alert alert-danger" role="alert">
-                <p >{{ msg }}</p>
-            </div>
-        }
-    }
+<div class="cont-principal-log">
+    <div class="background">
+        <div class="cont-info">
+            <div>
+                <h1>Iniciar Sesion</h1>
+                <div class="contenedor-parrafo">
+                    <p>Nos alegra tenerte de vuelta y estamos listos para atender tus necesidades. Inicia sesion y
+                        continua
+                        aprovechando
+                        al maximo nuestra plataforma</p>
+                </div>
+                <div class="monitoreo">
+                    <img src="../../../assets/icons/data.png" alt="">
+                    <div>
+                        <h4>Monitoreo integral</h4>
+                        <p>Administra, monitorea multiples plantas de forma centralizada</p>
+                    </div>
+                </div>
+                <div class="notificaciones">
+                    <img src="../../../assets/icons/star.png" alt="">
+                    <div>
+                        <h4>Notificaciones en tiempo real</h4>
+                        <p>Recibi notificaciones en tiempo real sobre las mediciones</p>
+                    </div>
+                </div>
 
-    <div class="d-flex justify-content-center">
-        <div class="card" style="width: 26rem;">
-            <div class="card-body">
-              <h5 class="card-title mb-3">Register</h5>
-              <form [formGroup]="form" (submit)="onSubmit()">
-                <div class="mb-3">
-                    <label for="firstname" class="form-label">Firstname</label>
-                    <input formControlName="firstname" type="text" class="form-control" id="firstname" placeholder="Firstname">
-                </div>
-                <div class="mb-3">
-                    <label for="lastname" class="form-label">Lastname</label>
-                    <input formControlName="lastname" type="text" class="form-control" id="lastname" placeholder="Lastname">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" formControlName="password" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-success" [disabled]="form.invalid">Register</button>
-              </form>
             </div>
+
         </div>
+    </div>
+    <div class="login">
+        <div>
+            <h1>Portal de monitoreo</h1>
+            <h3><a class="iniciar-sesion" (click)="toLogin()">Iniciar sesión</a>/Registrarse</h3>
+            <div class="card-body">
+                <form [formGroup]="form" (submit)="onSubmit()">
+                    <div>
+                        <label for="firstname" class="form-label">Nombre</label>
+                        <input formControlName="firstname" type="text" class="form-control" id="firstname"
+                            placeholder="Ej: Bruno">
+                    </div>
+                    <div>
+                        <label for="lastname" class="form-label">Apellido</label>
+                        <input formControlName="lastname" type="text" class="form-control" id="lastname"
+                            placeholder="Ej: Sturniolo">
+                    </div>
+                    <div>
+                        <label for="email" class="form-label">Correo Electronico</label>
+                        <input type="email" class="form-control" formControlName="email"
+                            placeholder="Ej: name@example.com">
+                    </div>
+                    <div>
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
+                    </div>
+                    <button type="submit" [disabled]="form.invalid" [ngClass]="{'btn-disabled': form.invalid, 'btn-enabled': !form.invalid}">Registrarse</button>
+
+                </form>
+            </div>
+
+        </div>
+        
     </div>
 </div>
