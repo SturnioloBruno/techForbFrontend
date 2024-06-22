@@ -86,3 +86,26 @@
 
 
 }
+
+
+@media (max-width:430px){
+
+  .modal-general{
+    width: 90%;
+    
+    .modal-contenido{
+      width: 100%;
+
+      form{
+        .crear-planta {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    }
+
+    
+    
+  }
+
+
+}
