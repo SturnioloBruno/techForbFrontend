@@ -1,7 +1,9 @@
 <div class="modal">
     <div class="modal_body">
         <h3>¿Estas seguro que desea Eliminar esta planta?</h3>
-        <button (click)="closeModalDelete()">Cancelar</button>
-        <button (click)="deletePlant(plantResponse!)">Si, eliminar</button>
+        <div class="contenedor-btn">
+            <button class="btn-cancelar" (click)="closeModalDelete()">Cancelar</button>
+            <button class="btn-eliminar" (click)="deletePlant(plantResponse!)">Eliminar</button>
+        </div>
     </div>
 </div>

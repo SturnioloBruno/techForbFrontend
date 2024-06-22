@@ -27,11 +27,12 @@
         </div>
       </div>
 
+      <div class="contenedor-cuerpo-responsive">
+        <app-summary-cards [totalReadings]="totalReadings" [totalMediumAlerts]="totalMediumAlerts"
+          [totalRedAlerts]="totalRedAlerts" [totalSensorsDisabled]="totalSensorsDisabled"></app-summary-cards>
 
-      <app-summary-cards [totalReadings]="totalReadings" [totalMediumAlerts]="totalMediumAlerts"
-        [totalRedAlerts]="totalRedAlerts" [totalSensorsDisabled]="totalSensorsDisabled"></app-summary-cards>
-
-      <app-plants-table [plants]="plants" (eventPlantsModified)="loadPlants()" ></app-plants-table>
+        <app-plants-table [plants]="plants" (eventPlantsModified)="loadPlants()"></app-plants-table>
+      </div>
 
       <div class="contenedor-footer">
         @for (currentSensor of sensors; track currentSensor.id) {

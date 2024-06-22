@@ -1,26 +1,23 @@
-
-
-
-.contenedor-tabla{
+.contenedor-tabla {
     background-color: white;
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
     margin-bottom: 2rem;
 
-    .contendor-btnPlanta{
+    .contendor-btnPlanta {
         padding: 2rem 2rem 1rem 2rem;
-        
+
         font-weight: 600;
-        
-        span{
+
+        span {
             margin-left: 1rem;
             margin-right: 2rem;
             font-size: 1.1rem;
             font-weight: 600;
         }
 
-        button{
+        button {
             padding: 0.2rem 1.1rem;
             background-color: transparent;
             border: solid #B0CAD1 1px;
@@ -28,122 +25,134 @@
             font-weight: 500;
         }
 
-        hr{
+        hr {
             height: 1x;
         }
 
     }
 
-    .tabla{
+    .tabla {
         width: 100%;
         padding-left: 2.1rem;
         padding-right: 1rem;
 
-        .cabecera{
+        .cabecera {
             display: grid;
-            grid-template-columns:repeat(6,1fr) ;
+            grid-template-columns: repeat(6, 1fr);
             column-gap: 5rem;
             color: #B0CAD1;
         }
 
-        .cuerpo{
+        .cuerpo {
             display: grid;
-            grid-template-columns: repeat(6,1fr);
+            grid-template-columns: repeat(6, 1fr);
             column-gap: 5rem;
 
-            .cont-bandera-nom{
+            p {
+                margin-bottom: 0;
+            }
+
+            .cont-bandera-nom {
                 display: contents;
-                
-                .bandera-nombre{
+
+                .bandera-nombre {
                     display: flex;
                     align-items: center;
                     gap: 0.8rem;
 
-                    p{
-                        margin-bottom: 0;
-                    }
                 }
             }
 
+            .nombre-planta {
+                margin: auto 0;
+            }
+
+            .resultados {
+                margin: auto 0;
+            }
+
         }
-           
+
     }
 }
 
 
-@media (max-width:430px){
+@media (max-width:430px) {
 
 
-.contenedor-tabla{
-    width: 21.12rem;
+    .contenedor-tabla {
+        width: 21.12rem;
 
-    .contendor-btnPlanta{
-        span{
-            margin-left: 0;
-        }
-        button{
-            display: none;
-        }
-        hr{
-            display: none;
-        }
-    }
-
-    .tabla{
-        width: 100%;
-        .cuerpo{
-            max-width: 100%;
-            gap: 10px;
-            grid-template-columns: repeat(5,1fr);
-            border-bottom: solid 2px #EAEAEA;
-            margin-bottom: 1rem;
-
-            .resultados{
-                width: 2.5rem;
-                font-size: 14px;
+        .contendor-btnPlanta {
+            span {
+                margin-left: 0;
             }
 
-            .cont-bandera-nom{
-                display: block;
-
-                .bandera-nombre{
-                    p{
-                        display: inline-block;
-                        width: 5rem;
-                    }
-                }
-
-                .nombre-planta{
-                    p{
-                       font-size: 0.75rem; 
-                       color: #848484;
-                    }
-                }
+            button {
+                display: none;
             }
 
-            .btn-tabla{
-                .boton-acciones{
-                    padding: 0 2rem 2rem 0;
+            hr {
+                display: none;
+            }
+        }
+
+        .tabla {
+            width: 100%;
+
+            .cuerpo {
+                max-width: 100%;
+                gap: 10px;
+                grid-template-columns: repeat(5, 1fr);
+                border-bottom: solid 2px #EAEAEA;
+                margin-bottom: 1rem;
+
+                .resultados {
                     width: 2.5rem;
-                    
+                    font-size: 14px;
                 }
+
+                .cont-bandera-nom {
+                    display: block;
+
+                    .bandera-nombre {
+                        p {
+                            display: inline-block;
+                            width: 5rem;
+                        }
+                    }
+
+                    .nombre-planta {
+                        p {
+                            font-size: 0.75rem;
+                            color: #848484;
+                        }
+                    }
+                }
+
+                .btn-tabla {
+                    .boton-acciones {
+                        padding: 0 2rem 2rem 0;
+                        width: 2.5rem;
+
+                    }
+                }
+
             }
 
-        } 
-
-        .cabecera{
-            display: none;
+            .cabecera {
+                display: none;
+            }
         }
+
+
+
+
+
     }
-    
 
 
 
 
-}
 
-    
-
-
-    
 }

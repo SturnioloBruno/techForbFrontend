@@ -71,7 +71,7 @@
       img[alt="ajuste"] {
         margin: 0 1rem;
       }
-
+      
       img[alt="campanita"] {
         margin-right: 1rem;
       }
@@ -90,7 +90,10 @@
 
   .contenedor-main {
     flex: 1;
-
+    
+    .contenedor-cuerpo-responsive{
+      display: contents;
+    }
   }
 
 
@@ -120,12 +123,23 @@
 
     .sobrecontenedor-main {
       width: 100%;
+      padding: 0;
 
       .contenedor-main {
 
-        .navbar {
+        .contenedor-cuerpo-responsive{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
 
+        .navbar {
+          padding: 1rem 1rem 0 1rem;
           border-bottom: solid 2px #F3F3F3;
+
+          img[alt="rectangulo"], img[alt="menu"]{
+            display: inline;
+          }
 
           .menu {
             width: 100%;
